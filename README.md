@@ -84,3 +84,6 @@ Dim_Date = ADDCOLUMNS(CALENDAR(MIN(Fact_Sales[InvoiceDate]),MAX(Fact_Sales[Invoi
 | **Revenue per Product Category** | Doanh thu theo loại sản phẩm                 |
 
 
+![image](https://github.com/user-attachments/assets/7a36c6e8-3d60-4535-af9c-0c59f99d3a8a)
+
+
