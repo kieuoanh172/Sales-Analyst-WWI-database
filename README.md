@@ -86,4 +86,24 @@ Dim_Date = ADDCOLUMNS(CALENDAR(MIN(Fact_Sales[InvoiceDate]),MAX(Fact_Sales[Invoi
 
 ![image](https://github.com/user-attachments/assets/7a36c6e8-3d60-4535-af9c-0c59f99d3a8a)
 
-
+### DAX Used: 
+```sql
+Growth_QoQ% = 
+ VAR Sales_prev_quater = CALCULATE([TotalSales_inclTax],DATEADD(Dim_Date[Date],-1,QUARTER))
+ RETURN
+ DIVIDE([TotalSales_inclTax]-Sales_prev_quater,Sales_prev_quater)
+```
+```sql
+Total_Sales_ExclTax = SUMX(Fact_Sales,Fact_Sales[Quantity]*Fact_Sales[UnitPrice])
+```
+```sql
+Avg_Order_Value = DIVIDE([TotalSales_inclTax],DISTINCTCOUNT(Fact_Sales[InvoiceID]))
+```
+Create Dynamic Growth %
+#### Create table Grownth_Type = DATATABLE("Type",STRING,{{"MoM"},{"QoQ"},{"YoY"}})
+```sql
+Dynamic Growth % = 
+VAR Select_Growth = SELECTEDVALUE(Grownth_Type[Type])
+RETURN
+SWITCH(Select_Growth,"MoM",[Growth_MOM%],"QoQ",[Growth_QOQ%],"YoY",[Growth_YOY%])
+```
