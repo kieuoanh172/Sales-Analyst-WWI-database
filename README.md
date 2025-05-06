@@ -80,7 +80,6 @@ Dim_Date = ADDCOLUMNS(CALENDAR(MIN(Fact_Sales[InvoiceDate]),MAX(Fact_Sales[Invoi
 | **Discount Rate**                | Trung bình mức chiết khấu %                  |
 | **Sales by Region**              | Doanh thu theo khu vực địa lý                |
 | **Sales per Employee**           | Hiệu suất bán hàng của từng nhân viên        |
-| **Customer Retention Rate**      | (Nếu có dữ liệu về repeat orders)            |
 | **Revenue per Product Category** | Doanh thu theo loại sản phẩm                 |
 
 
